@@ -4,8 +4,8 @@ __pycache__/
 *$py.class
 
 #bins
-*/speedtest*
-*/speedtest*
+*/src/linux/speedtest-x86
+*/src/linuxarm/speedtest-arm
 
 # C extensions
 *.so
