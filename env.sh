@@ -1,0 +1,1 @@
+export INTERVAL=120
