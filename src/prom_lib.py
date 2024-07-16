@@ -25,6 +25,7 @@ class prometheus():
         self.packet_loss = Gauge('packetloss', 'Packet loss',['location','country','server','isp','providername','server_ip','internal_ip','external_ip','hostname','mac','interface'])
     
     def current_speed(self,input_dict):
+        pprint.pprint(input_dict)
         try:
             logging.info("Emitting speedtest metrics.")
             self.upload_speed.labels(input_dict['location'],input_dict['country'],input_dict['server'],input_dict['isp'],input_dict['providername'],input_dict['server_ip'],input_dict['internal_ip'],input_dict['external_ip'],input_dict['hostname'],input_dict['mac'],input_dict['interface']).set(input_dict['upload_Mbps'])
