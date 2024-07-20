@@ -16,8 +16,9 @@ RUN pip3 install -r /requirements.txt
 
 ADD speed.py $INSTALL_PATH
 ADD speed_lib.py $INSTALL_PATH
-ADD entrypoint.sh $INSTALL_PATH
 ADD settings.py $INSTALL_PATH
 ADD prom_lib.py $INSTALL_PATH
+ADD entrypoint.sh $INSTALL_PATH
+ADD run_app.py $INSTALL_PATH
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["python3","run_app.py"]
