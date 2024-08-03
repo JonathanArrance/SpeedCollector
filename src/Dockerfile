@@ -21,4 +21,5 @@ ADD prom_lib.py $INSTALL_PATH
 ADD entrypoint.sh $INSTALL_PATH
 ADD run_app.py $INSTALL_PATH
 
+#This is a hack that adds stability
 ENTRYPOINT ["python3","run_app.py"]
