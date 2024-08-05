@@ -2,6 +2,22 @@
 
 The Speedcollector utilizes the Ookla Speedtest utility to measure the upload and download speed from your network on a given interval and track the measurments with Prometheus.
 
+## Pre-reqs
+
+**Prometheus**
+
+[Install](https://prometheus.io/docs/prometheus/latest/installation/)
+
+[Configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
+
+[PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+
+**Grafana**
+
+[Install](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/)
+
+[Configs](https://grafana.com/docs/grafana/latest/setup-grafana/configure-docker/)
+
 ## Standalone container
 
 **Build**
