@@ -18,6 +18,8 @@ or the build script can be used create a standard container image.
 
 **Run**
 
+NOTE: This can be changed to fit your environment.
+
 Run the container with the following parameters
 ```bash
 docker run -d -p 9030:9030 --network MY_CONTAINER_NETWORK --name speed-collector speed-collector:latest
@@ -38,6 +40,8 @@ In order to take measurements we will scrape the collector with Promethus.
 
 Add the following config config to your Prometheus configuration file, or add a config that matches your environment to scrape the container.
 
+NOTE: Make sure to use the same port defined when you deploy.
+
 ```bash
 scrape_configs:
 
@@ -49,3 +53,9 @@ scrape_configs:
 ```
 
 ## Grafana Dashboard
+
+Use the Grafana dashboard to visualize the collected data.
+
+<img src="./Images/example_dash.png">
+
+Get the dashboard [here](https://github.com/JonathanArrance/SpeedCollector/tree/main/dashboard)
