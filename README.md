@@ -2,6 +2,22 @@
 
 The Speedcollector utilizes the Ookla Speedtest utility to measure the upload and download speed from your network on a given interval and track the measurments with Prometheus.
 
+## Pre-reqs
+
+**Prometheus**
+
+[Install](https://prometheus.io/docs/prometheus/latest/installation/)
+
+[Configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
+
+[PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+
+**Grafana**
+
+[Install](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/)
+
+[Configs](https://grafana.com/docs/grafana/latest/setup-grafana/configure-docker/)
+
 ## Standalone container
 
 **Build**
@@ -17,6 +33,8 @@ or the build script can be used create a standard container image.
 ```
 
 **Run**
+
+NOTE: This can be changed to fit your environment.
 
 Run the container with the following parameters
 ```bash
@@ -38,6 +56,8 @@ In order to take measurements we will scrape the collector with Promethus.
 
 Add the following config config to your Prometheus configuration file, or add a config that matches your environment to scrape the container.
 
+NOTE: Make sure to use the same port defined when you deploy.
+
 ```bash
 scrape_configs:
 
@@ -49,3 +69,9 @@ scrape_configs:
 ```
 
 ## Grafana Dashboard
+
+Use the Grafana dashboard to visualize the collected data.
+
+<img src="./Images/example_dash.png">
+
+Get the dashboard [here](https://github.com/JonathanArrance/SpeedCollector/tree/main/dashboard)
