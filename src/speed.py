@@ -16,18 +16,24 @@ def main():
     while True:
         if platform.processor() == 'aarch64' and platform.system() == 'Linux':
             #args = ['/usr/bin/speedtest-arm', '--accept-license', '-p', 'no', '-f', 'json']
-            args = ['/usr/bin/speedtest-arm', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER,'-I',settings.INTERFACE]
+            #args = ['/usr/bin/speedtest-arm', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER,'-I',settings.INTERFACE]
+            args = ['/usr/bin/speedtest-arm', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER]
         if platform.processor() == 'x86_64' and platform.system() == 'Linux':
             #args = ['/usr/bin/speedtest-x86', '--accept-license', '-p', 'no', '-f', 'json']
-            args = ['/usr/bin/speedtest-x86', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER,'-I',settings.INTERFACE]
+            #args = ['/usr/bin/speedtest-x86', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER,'-I',settings.INTERFACE]
+            args = ['/usr/bin/speedtest-x86', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER]
+        if platform.processor() == 'arm' and platform.system() == 'Darwin':
+            #args = ['/opt/homebrew/bin/speedtest', '--accept-license', '-p', 'no', '-f', 'json']
+            args = ['/opt/homebrew/bin/speedtest', '--accept-license', '-p', 'no', '-f', settings.FORMAT,'-o',settings.SERVER]
 
         try:
             cmd = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = json.loads(cmd.communicate()[0].decode("utf-8").rstrip())
         except Exception as e:
             logging.error("speedtest error: %s"%e)
+            raise(e)
             output = 'ERROR'
-        
+
         #upload megabytes
         up = ((int(output['upload']['bytes']) * 8) / int(output['upload']['elapsed'])) /1000
 
